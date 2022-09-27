@@ -6,7 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body
+><header>
+    <img src="./assets/logo-issuu.png" alt="logo-issuu">
+</header>
+    
     <h1>prueba</h1>
+    <form action="/next-page" method="post">
+
+        <fieldset>
+            <legend>Datos Básicos</legend>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name">
+            <label for="date">Nombre</label>
+            <input type="date" name="date" id="date">
+        </fieldset>
+    
+        <fieldset>
+            <legend>Datos productos</legend>
+            <label for="price">Precio</label>
+            <input type="number" name="price" id="price">
+            <label for="comments">Comments</label>
+            <textarea id="comments"></textarea>
+        </fieldset>
+    
+        <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>
