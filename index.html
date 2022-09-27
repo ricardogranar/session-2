@@ -4,33 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+<link rel="stylesheet" href="styles.css">
+    <title>Formulario</title>
 </head>
 <body
 ><header>
     <img src="./assets/logo-issuu.png" alt="logo-issuu">
 </header>
     
-    <h1>prueba</h1>
+    <h1>Create an Issuu Account</h1>
     <form action="/next-page" method="post">
+<div id="my-signin2"></div>
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
 
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+  <span>or with email</span>
         <fieldset>
-            <legend>Datos Básicos</legend>
-            <label for="name">Nombre</label>
-            <input type="text" name="name" id="name">
-            <label for="date">Nombre</label>
-            <input type="date" name="date" id="date">
+            <form id="login" method="post" action="login.php"><br>
+                Email: <br>
+          <input type="email" name="mail" placeholder="e.g johndoe@email.com"><br>
+          Password: <br>
+          <input type="password" name="Password" ><br>
+         <div>
+            <label><input type="checkbox" id="cbox1" value="first_checkbox"> I accept the terms of Service and the Professional Terms os Service.
+</label><br>
+
+         </div>
+          <input type="submit" value="Create Account">
+              </form>
         </fieldset>
-    
-        <fieldset>
-            <legend>Datos productos</legend>
-            <label for="price">Precio</label>
-            <input type="number" name="price" id="price">
-            <label for="comments">Comments</label>
-            <textarea id="comments"></textarea>
-        </fieldset>
-    
-        <button type="submit">Enviar</button>
     </form>
 </body>
 </html>
